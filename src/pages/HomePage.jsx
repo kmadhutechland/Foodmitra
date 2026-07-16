@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import OfferCard from "../components/OfferCard";
 import { featuredOffers } from "../data";
+import { useNavigate } from "react-router-dom";
 
 const transitionLuxe = { duration: 1, ease: [0.19, 1, 0.22, 1] };
 
@@ -47,6 +48,7 @@ const CountdownTimer = () => {
     }, 1000);
     return () => clearInterval(timer);
   }, []);
+  
 
   const TimerUnit = React.memo(({ value, label, max, color }) => {
     const formattedValue = value.toString().padStart(2, "0");
@@ -718,10 +720,11 @@ const GallerySection = () => {
 };
 // --- Main Page Component ---
 
+
 export default function HomePage() {
+  const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-
   // --- Hero Interactive Logic ---
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -1362,15 +1365,25 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Support */}
-            <div>
-              <h5 style={{ fontSize: '0.8rem', fontWeight: 900, color: 'var(--color-ghost)', marginBottom: '2.5rem', letterSpacing: '0.15em' }}>SECURITY</h5>
-              <div style={{ display: 'grid', gap: '1.2rem' }}>
-                {['Privacy Protocol', 'Terms of Sync', 'Encryption FAQ', 'Support Hub', 'Dispute Queue'].map(link => (
-                  <button key={link} className="nav-link" style={{ background: 'none', border: 'none', textAlign: 'left', padding: 0, textTransform: 'capitalize' }}>{link}</button>
-                ))}
-              </div>
-            </div>
+           {/* Support */}
+<div>
+  <h5 style={{ fontSize: '0.8rem', fontWeight: 900, color: 'var(--color-ghost)', marginBottom: '2.5rem', letterSpacing: '0.15em' }}>SECURITY</h5>
+  <div style={{ display: 'grid', gap: '1.2rem' }}>
+    {['Privacy Protocol', 'Terms of Sync', 'Encryption FAQ', 'Support Hub', 'Dispute Queue'].map(link => (
+      <button
+        key={link}
+        className="nav-link"
+        style={{ background: 'none', border: 'none', textAlign: 'left', padding: 0, textTransform: 'capitalize' }}
+        onClick={() => {
+          if (link === 'Privacy Protocol') navigate('/privacy-policy');
+          if (link === 'Terms of Sync') navigate('/terms-condition');
+        }}
+      >
+        {link}
+      </button>
+    ))}
+  </div>
+</div>
 
             {/* App Download */}
             <div>

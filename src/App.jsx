@@ -11,7 +11,7 @@ export default function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route
-          path="terms"
+          path="terms-condition"
           element={
             <LegalPage
               title="Terms and Conditions"
@@ -20,7 +20,7 @@ export default function App() {
           }
         />
         <Route
-          path="privacy"
+          path="privacy-policy"
           element={
             <LegalPage
               title="Privacy Policy"
@@ -34,4 +34,3 @@ export default function App() {
     </Routes>
   );
 }
-
