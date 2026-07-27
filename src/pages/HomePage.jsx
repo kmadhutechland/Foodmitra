@@ -1301,7 +1301,7 @@ export default function HomePage() {
                     </div>
                     <div>
                       <div style={{ fontWeight: 900, color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem' }}>EMAIL PROTOCOL</div>
-                      <div style={{ fontSize: '1.25rem', fontWeight: 700 }}>ops@foodmithra.com</div>
+                      <div style={{ fontSize: '1.25rem', fontWeight: 700 }}>foodmithara@gmail.com</div>
                     </div>
                   </div>
                   <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
@@ -1310,7 +1310,7 @@ export default function HomePage() {
                     </div>
                     <div>
                       <div style={{ fontWeight: 900, color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem' }}>DIRECT VOICE</div>
-                      <div style={{ fontSize: '1.25rem', fontWeight: 700 }}>+91 9000 111 222</div>
+                      <div style={{ fontSize: '1.25rem', fontWeight: 700 }}>+91 9391046401</div>
                     </div>
                   </div>
                 </div>
@@ -1369,7 +1369,7 @@ export default function HomePage() {
 <div>
   <h5 style={{ fontSize: '0.8rem', fontWeight: 900, color: 'var(--color-ghost)', marginBottom: '2.5rem', letterSpacing: '0.15em' }}>SECURITY</h5>
   <div style={{ display: 'grid', gap: '1.2rem' }}>
-    {['Privacy Protocol', 'Terms of Sync', 'Encryption FAQ', 'Support Hub', 'Dispute Queue'].map(link => (
+    {['Privacy Protocol', 'Terms of Sync', 'Encryption FAQ', 'Support Hub', 'Dispute Queue', 'Delete Account'].map(link => (
       <button
         key={link}
         className="nav-link"
@@ -1377,6 +1377,8 @@ export default function HomePage() {
         onClick={() => {
           if (link === 'Privacy Protocol') navigate('/privacy-policy');
           if (link === 'Terms of Sync') navigate('/terms-condition');
+          if (link === 'Support Hub') navigate('/support');
+          if (link === 'Delete Account') navigate('/delete-account');
         }}
       >
         {link}
@@ -1464,8 +1466,6 @@ export default function HomePage() {
     </div>
   );
 }
-
-
 
 
 
