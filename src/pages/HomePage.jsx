@@ -30,6 +30,72 @@ const transitionLuxe = { duration: 1, ease: [0.19, 1, 0.22, 1] };
 
 // --- Sub-components ---
 
+const heroSlides = [
+  { image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80", quote: "Good food is the foundation of genuine happiness." },
+  { image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80", quote: "Every meal deserves an honest price." },
+  { image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&q=80", quote: "Fresh ingredients, fair prices, real taste." },
+  { image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=800&q=80", quote: "From kitchen to doorstep — no hidden costs." },
+  { image: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=800&q=80", quote: "Taste the difference when fairness is on the menu." },
+];
+
+const HeroContent = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent(prev => (prev + 1) % heroSlides.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="hero-split">
+      {/* Left - Image */}
+      <div className="hero-slide-img">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={current}
+            src={heroSlides[current].image}
+            alt="Food"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', inset: 0 }}
+          />
+        </AnimatePresence>
+        {/* Dots */}
+        <div style={{ position: 'absolute', bottom: '1rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 2 }}>
+          {heroSlides.map((_, i) => (
+            <button key={i} onClick={() => setCurrent(i)} style={{
+              width: i === current ? '20px' : '8px', height: '4px', borderRadius: '99px',
+              border: 'none', background: i === current ? 'var(--color-brand)' : 'rgba(255,255,255,0.5)',
+              cursor: 'pointer', transition: 'all 0.3s ease', padding: 0
+            }} />
+          ))}
+        </div>
+      </div>
+
+      {/* Right - Changing Quote */}
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={current}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.4 }}
+            className="serif hero-quote"
+            style={{ color: 'var(--color-ink)', lineHeight: 1.4 }}
+          >
+            "{heroSlides[current].quote}"
+          </motion.p>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+};
+
 const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
@@ -523,7 +589,7 @@ const LegalSection = () => {
     privacy: {
       title: "Privacy Policy",
       body: [
-        "Your data belongs to you. Food Mithra only stores metadata essential for logistics and vendor settlement. We have zero integration with third-party advertising networks.",
+        "Your data belongs to you. MITHRA SOLUTIONS PRIVATE LIMITED only stores metadata essential for logistics and vendor settlement. We have zero integration with third-party advertising networks.",
         "Location services are active only during your 'Live Mission' (order window). Once the delivery partner confirms fulfillment, your spatial coordinate data is purged from our active processing nodes.",
         "All communication between you and our partners happens through a secure, encrypted relay, protecting your phone number and identity."
       ]
@@ -869,14 +935,14 @@ export default function HomePage() {
         id="hero"
         onMouseMove={handleMouseMove}
         style={{
-          minHeight: '100vh',
           background: 'var(--color-bone)',
           position: 'relative',
           overflow: 'hidden',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          paddingTop: '80px',
+          paddingTop: '100px',
+          paddingBottom: '4rem',
           perspective: '1200px'
         }}
       >
@@ -925,166 +991,26 @@ export default function HomePage() {
           style={{ position: 'absolute', bottom: '10%', left: '8%', width: '350px', height: '350px', background: 'var(--color-accent)', borderRadius: '50%', filter: 'blur(140px)', opacity: 0.06, zIndex: 0 }}
         />
 
-        <div className="container" style={{ position: 'relative', zIndex: 5, textAlign: 'center' }}>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
+        <div className="container" style={{ position: 'relative', zIndex: 5 }}>
+          {/* Title on top */}
+          <motion.h1
+            className="display-1"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
+            style={{ color: 'var(--color-ink)', letterSpacing: '-0.05em', lineHeight: 0.9, marginBottom: '3rem', textAlign: 'center' }}
           >
-            {/* Unique Interactive Eyebrow */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', marginBottom: '4.5rem', cursor: 'default' }}
-            >
-              <div style={{ height: '1px', width: '25px', background: 'var(--color-ink)', opacity: 0.15 }} />
-              <div style={{ position: 'relative' }}>
+            FOOD MITHRA
+          </motion.h1>
 
-                <motion.div
-                  animate={{ width: ['0%', '100%', '0%'] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  style={{ position: 'absolute', bottom: '-8px', left: 0, height: '1px', background: 'var(--color-brand)', opacity: 0.4 }}
-                />
-              </div>
-              <div style={{ height: '1px', width: '25px', background: 'var(--color-ink)', opacity: 0.15 }} />
-            </motion.div>
-
-            {/* Magnetic Display Header */}
-            <motion.div
-              initial={{ y: 40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.4, ease: [0.19, 1, 0.22, 1] }}
-            >
-              <h1 className="display-1" style={{ color: 'var(--color-ink)', marginBottom: '3.5rem', letterSpacing: '-0.05em', lineHeight: 0.9 }}>
-                <motion.span
-                  whileHover={{ y: -10, scale: 1.02, textShadow: "0 20px 40px rgba(50,38,33,0.1)" }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  style={{ display: 'inline-block', cursor: 'default' }}
-                >
-                  FOOD MITHRA
-                </motion.span>
-                <br />
-                <motion.span
-                  whileHover={{ y: -8, scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="serif"
-                  style={{ fontSize: '0.85em', color: 'var(--color-brand)', display: 'inline-block', position: 'relative', cursor: 'default' }}
-                >
-                  is Launching.
-                  <motion.span
-                    animate={{ opacity: [0, 1, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    style={{ position: 'absolute', right: '-15px', top: '10px', width: '8px', height: '8px', background: 'var(--color-brand)', borderRadius: '50%' }}
-                  />
-                </motion.span>
-              </h1>
-
-              <p style={{ color: 'var(--color-slate)', fontSize: '1.35rem', maxWidth: '650px', margin: '0 auto 5.5rem', lineHeight: 1.7, fontWeight: 400, opacity: 0.8 }}>
-                The architecture of food commerce is evolving. Join the sanctuary where <span style={{ color: 'var(--color-ink)', fontWeight: 800 }}>fairness</span> meets <span style={{ color: 'var(--color-ink)', fontWeight: 800 }}>craftsmanship.</span>
-              </p>
-            </motion.div>
-
-            {/* Elevated Zen Deck with 3D Tilt */}
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.4, duration: 1.2 }}
-              whileHover={{
-                rotateX: -5,
-                rotateY: 5,
-                z: 50,
-                boxShadow: "0 50px 100px -20px rgba(50,38,33,0.15)"
-              }}
-              style={{
-                background: 'rgba(255,255,255,0.4)',
-                backdropFilter: 'blur(20px)',
-                padding: '3.5rem 4rem',
-                borderRadius: '40px',
-                border: '1px solid #fff',
-                boxShadow: '0 30px 60px -15px rgba(50,38,33,0.06)',
-                display: 'inline-block',
-                position: 'relative',
-                transformStyle: 'preserve-3d',
-                cursor: 'pointer'
-              }}
-            >
-              <div style={{ transform: 'translateZ(30px)' }}>
-                <CountdownTimer />
-              </div>
-
-              {/* Corner Geometry Accents */}
-              <div style={{ position: 'absolute', top: '1.5rem', left: '1.5rem', width: '10px', height: '10px', borderTop: '1px solid var(--color-brand)', borderLeft: '1px solid var(--color-brand)', opacity: 0.3 }} />
-              <div style={{ position: 'absolute', bottom: '1.5rem', right: '1.5rem', width: '10px', height: '10px', borderBottom: '1px solid var(--color-accent)', borderRight: '1px solid var(--color-accent)', opacity: 0.3 }} />
-            </motion.div>
-
-            {/* Interactive Pulse Rings */}
-            <motion.div
-              animate={{ scale: [1, 1.15, 1], opacity: [0.05, 0.1, 0.05] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              style={{
-                position: 'absolute', top: '55%', left: '50%', transform: 'translate(-50%, -50%)',
-                width: '700px', height: '700px', border: '1px solid var(--color-ink)', borderRadius: '50%',
-                zIndex: -1, pointerEvents: 'none'
-              }}
-            />
-          </motion.div>
+          {/* Image left + Quote right */}
+          <HeroContent />
         </div>
-
-        {/* Floating Technical Coordinates */}
-        <div className="mobile-hide" style={{ position: 'absolute', left: '4rem', bottom: '4rem', display: 'flex', flexDirection: 'column', gap: '3rem', opacity: 0.3 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <div style={{ width: '4px', height: '4px', background: 'var(--color-brand)', borderRadius: '50%' }} />
-                
-          </div>
-          <div style={{ height: '80px', width: '1px', background: 'var(--color-ink)', margin: '0 auto' }} />
-        </div>
-      </section>      {/* Photo Strip Between Hero and About */}
+      </section>      {/* Photo Strip - commented out
       <section style={{ padding: '1rem 0', background: 'var(--color-bone)', overflow: 'hidden' }}>
-        <div style={{ overflow: 'hidden', borderTop: '1px solid rgba(0,0,0,0.05)', borderBottom: '1px solid rgba(0,0,0,0.05)', padding: '0.65rem 0' }}>
-          <motion.div
-            animate={{ x: ['0%', '-50%'] }}
-            transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
-            style={{ display: 'flex', gap: '0.75rem', width: 'max-content' }}
-          >
-            {[                     
-              "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=900&q=80"
-            ].map((img, idx) => (
-              <div
-                key={`${img}-${idx}`}
-                style={{
-                  width: '210px',
-                  height: '110px',
-                  borderRadius: '12px',
-                  overflow: 'hidden',
-                  border: '1px solid rgba(50,38,33,0.08)',
-                  flexShrink: 0,
-                  background: '#fff'
-                }}
-              >
-                <img src={img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-            ))}
-          </motion.div>
-        </div>
+        ...
       </section>
+      */}
 
       {/* About Us */}
       <motion.section
@@ -1102,7 +1028,7 @@ export default function HomePage() {
               <div className="accent-line" />
               <h3 className="display-2" style={{ marginBottom: '3rem' }}>ABOUT <span className="serif"> US</span></h3>
               <p style={{ fontSize: '1.3rem', color: 'var(--color-slate)', lineHeight: 1.8, marginBottom: '2.5rem' }}>
-                Food Mithra was founded on a simple realization: the digital convenience layer was becoming a predatory middleman. In the rush for speed, we lost sight of the <strong>cooks</strong>, the <strong>riders</strong>, and the <strong>diners</strong>.
+                <strong>MITHRA SOLUTIONS PRIVATE LIMITED</strong> was founded on a simple realization: the digital convenience layer was becoming a predatory middleman. In the rush for speed, we lost sight of the <strong>cooks</strong>, the <strong>riders</strong>, and the <strong>diners</strong>.
               </p>
               <p style={{ fontSize: '1.3rem', color: 'var(--color-slate)', lineHeight: 1.8, marginBottom: '4rem' }}>
                 We've built a sanctuary—a platform that restores the sacred connection between a kitchen's effort and a diner's table. No markups, no exploitative gig-work, just honest food delivered with dignity.
@@ -1406,11 +1332,15 @@ export default function HomePage() {
                     <div style={{ fontSize: '1.1rem', fontWeight: 900 }}>App Store</div>
                   </div>
                 </button>
-                <button
+                <a
+                  href="https://play.google.com/store/apps/developer?id=MITHRA+SOLUTIONS+PRIVATE+LIMITED"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     background: 'var(--color-ink)', color: '#fff', border: 'none',
                     padding: '1.2rem 2rem', borderRadius: '16px', display: 'flex',
-                    alignItems: 'center', gap: '1.2rem', cursor: 'pointer', textAlign: 'left'
+                    alignItems: 'center', gap: '1.2rem', cursor: 'pointer', textAlign: 'left',
+                    textDecoration: 'none'
                   }}
                 >
                   <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.6rem', borderRadius: '100px' }}>
@@ -1420,7 +1350,7 @@ export default function HomePage() {
                     <div style={{ fontSize: '0.65rem', fontWeight: 800, opacity: 0.6 }}>GET IT ON</div>
                     <div style={{ fontSize: '1.1rem', fontWeight: 900 }}>Google Play</div>
                   </div>
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -1433,7 +1363,7 @@ export default function HomePage() {
         </div>
       </motion.footer>
 
-      {/* Coming Soon Pop-up */}
+      {/* Coming Soon Pop-up - commented out
       <AnimatePresence>
         {showPopup && (
           <motion.div
@@ -1463,6 +1393,7 @@ export default function HomePage() {
           </motion.div>
         )}
       </AnimatePresence>
+      */}
     </div>
   );
 }

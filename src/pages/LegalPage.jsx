@@ -134,7 +134,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   fontSize: "1rem",
                 }}
               >
-                Your privacy is important to Food Mithra. This Privacy Policy
+                Your privacy is important to MITHRA SOLUTIONS PRIVATE LIMITED. This Privacy Policy
                 explains how we collect, use, store, protect, and share
                 information when you use our food ordering and delivery
                 services.
@@ -252,7 +252,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   <h2>1. Introduction</h2>
 
                   <p>
-                    Food Mithra ("Food Mithra", "we", "our", or "us") is a
+                    MITHRA SOLUTIONS PRIVATE LIMITED ("we", "our", or "us") is a
                     food ordering and delivery platform that connects
                     customers with restaurants, food vendors, and delivery
                     partners.
@@ -265,7 +265,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   </p>
 
                   <p>
-                    By using the Food Mithra application or related services,
+                    By using the MITHRA SOLUTIONS PRIVATE LIMITED application or related services,
                     you acknowledge the practices described in this Privacy
                     Policy.
                   </p>
@@ -276,7 +276,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   <h2>2. Information We Collect</h2>
 
                   <p>
-                    Depending on how you use Food Mithra, we may collect the
+                    Depending on how you use MITHRA SOLUTIONS PRIVATE LIMITED, we may collect the
                     following categories of information.
                   </p>
 
@@ -323,7 +323,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   </div>
 
                   <p>
-                    Food Mithra may access your device's location information
+                    MITHRA SOLUTIONS PRIVATE LIMITED may access your device's location information
                     when you grant location permission to the application.
                   </p>
 
@@ -388,7 +388,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   <p>
                     You can enable or disable location permissions at any time
                     through your device settings. If you disable location
-                    access, some Food Mithra features, including location
+                    access, some MITHRA SOLUTIONS PRIVATE LIMITED features, including location
                     based restaurant discovery, address selection, delivery
                     tracking, or navigation-related functionality, may not
                     work correctly.
@@ -397,7 +397,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   <h3>3.3 Delivery Partner Location</h3>
 
                   <p>
-                    If you use Food Mithra as a delivery partner, the
+                    If you use MITHRA SOLUTIONS PRIVATE LIMITED as a delivery partner, the
                     application may access location information while you are
                     performing delivery-related activities. This may be used
                     to provide delivery navigation, order tracking, estimated
@@ -431,7 +431,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   </div>
 
                   <p>
-                    When you place an order through Food Mithra, we may
+                    When you place an order through MITHRA SOLUTIONS PRIVATE LIMITED, we may
                     collect information related to the order, including:
                   </p>
 
@@ -472,7 +472,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   </div>
 
                   <p>
-                    Food Mithra may use third-party payment service providers
+                    MITHRA SOLUTIONS PRIVATE LIMITED may use third-party payment service providers
                     to process payments.
                   </p>
 
@@ -497,7 +497,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   <h2>6. Restaurants and Food Vendors</h2>
 
                   <p>
-                    Food Mithra may share necessary order information with
+                    MITHRA SOLUTIONS PRIVATE LIMITED may share necessary order information with
                     the restaurant or food vendor responsible for preparing
                     your order.
                   </p>
@@ -598,7 +598,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   </div>
 
                   <p>
-                    Food Mithra may send push notifications relating to your
+                    MITHRA SOLUTIONS PRIVATE LIMITED may send push notifications relating to your
                     account, orders, payments, delivery status, offers, and
                     important service information.
                   </p>
@@ -629,7 +629,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   </div>
 
                   <p>
-                    If you contact Food Mithra customer support, we may
+                    If you contact MITHRA SOLUTIONS PRIVATE LIMITED customer support, we may
                     collect information necessary to understand and resolve
                     your request.
                   </p>
@@ -646,7 +646,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   <h2>11. How We Use Information</h2>
 
                   <p>
-                    We may use information collected through Food Mithra to:
+                    We may use information collected through MITHRA SOLUTIONS PRIVATE LIMITED to:
                   </p>
 
                   <ul>
@@ -671,7 +671,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
 
                   <p>
                     We may share information with trusted parties when
-                    reasonably necessary to provide Food Mithra services.
+                    reasonably necessary to provide MITHRA SOLUTIONS PRIVATE LIMITED services.
                   </p>
 
                   <p>This may include:</p>
@@ -761,7 +761,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   </div>
 
                   <p>
-                    Users may request deletion of their Food Mithra account
+                    Users may request deletion of their MITHRA SOLUTIONS PRIVATE LIMITED account
                     and associated personal information.
                   </p>
 
@@ -773,7 +773,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   </p>
 
                   <p>
-                    To request account or data deletion, contact Food Mithra
+                    To request account or data deletion, contact MITHRA SOLUTIONS PRIVATE LIMITED
                     using the contact information provided below.
                   </p>
                 </section>
@@ -783,7 +783,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   <h2>16. Application Permissions</h2>
 
                   <p>
-                    Depending on the features you use, Food Mithra may request
+                    Depending on the features you use, MITHRA SOLUTIONS PRIVATE LIMITED may request
                     access to certain device permissions.
                   </p>
 
@@ -823,7 +823,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   <h2>17. Third-Party Services</h2>
 
                   <p>
-                    Food Mithra may use third-party services for functions
+                    MITHRA SOLUTIONS PRIVATE LIMITED may use third-party services for functions
                     such as payment processing, cloud hosting, maps,
                     notifications, analytics, crash reporting, authentication,
                     and other infrastructure services.
@@ -840,7 +840,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   <h2>18. Children's Privacy</h2>
 
                   <p>
-                    Food Mithra is not intended for children under the age of
+                    MITHRA SOLUTIONS PRIVATE LIMITED is not intended for children under the age of
                     13. We do not knowingly collect personal information from
                     children under 13.
                   </p>
@@ -891,7 +891,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                   <p>
                     If you have questions about this Privacy Policy, our data
                     practices, or wish to request account or data deletion,
-                    please contact Food Mithra.
+                    please contact MITHRA SOLUTIONS PRIVATE LIMITED.
                   </p>
 
                   <div
@@ -903,7 +903,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                     }}
                   >
                     <p>
-                      <strong>Food Mithra</strong>
+                      <strong>MITHRA SOLUTIONS PRIVATE LIMITED</strong>
                     </p>
 
                     <p>
@@ -947,7 +947,7 @@ export default function LegalPage({ title = "Privacy Policy" }) {
                       lineHeight: 1.8,
                     }}
                   >
-                    Food Mithra is committed to responsible handling of user
+                    MITHRA SOLUTIONS PRIVATE LIMITED is committed to responsible handling of user
                     information and transparent operation of its food ordering
                     and delivery ecosystem. Information is processed only for
                     legitimate business, operational, security, legal, and
